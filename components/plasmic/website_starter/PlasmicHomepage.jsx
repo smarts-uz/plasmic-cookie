@@ -12,13 +12,13 @@ import * as React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import {
-  PlasmicPageGuard as PlasmicPageGuard__,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
   useCurrentUser
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
+import Logoutbtn from "../../Logoutbtn"; // plasmic-import: 65-899b64QTN/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: jmHNNnoWA4E72wFFsdNVMq/projectcss
@@ -106,7 +106,7 @@ function PlasmicHomepage__RenderFunc(props) {
               <React.Fragment>
                 {(() => {
                   try {
-                    return currentUser.email;
+                    return "User " + currentUser.email;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -120,6 +120,25 @@ function PlasmicHomepage__RenderFunc(props) {
               </React.Fragment>
             </div>
           </section>
+          {(() => {
+            try {
+              return currentUser.isLoggedIn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Logoutbtn
+              data-plasmic-name={"logoutbtn"}
+              data-plasmic-override={overrides.logoutbtn}
+              className={classNames("__wab_instance", sty.logoutbtn)}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -127,10 +146,11 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text"],
+  root: ["root", "section", "h1", "text", "logoutbtn"],
   section: ["section", "h1", "text"],
   h1: ["h1"],
-  text: ["text"]
+  text: ["text"],
+  logoutbtn: ["logoutbtn"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -160,29 +180,15 @@ function makeNodeComponent(nodeName) {
   return func;
 }
 
-function withPlasmicPageGuard(WrappedComponent) {
-  const PageGuard = props => (
-    <PlasmicPageGuard__
-      minRole={null}
-      appId={"jmHNNnoWA4E72wFFsdNVMq"}
-      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
-      canTriggerLogin={false}
-    >
-      <WrappedComponent {...props} />
-    </PlasmicPageGuard__>
-  );
-
-  return PageGuard;
-}
-
 export const PlasmicHomepage = Object.assign(
   // Top-level PlasmicHomepage renders the root element
-  withPlasmicPageGuard(makeNodeComponent("root")),
+  makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     text: makeNodeComponent("text"),
+    logoutbtn: makeNodeComponent("logoutbtn"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

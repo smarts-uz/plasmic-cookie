@@ -12,7 +12,6 @@ import * as React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import {
-  PlasmicPageGuard as PlasmicPageGuard__,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
@@ -113,24 +112,9 @@ function makeNodeComponent(nodeName) {
   return func;
 }
 
-function withPlasmicPageGuard(WrappedComponent) {
-  const PageGuard = props => (
-    <PlasmicPageGuard__
-      minRole={null}
-      appId={"jmHNNnoWA4E72wFFsdNVMq"}
-      authorizeEndpoint={"https://studio.plasmic.app/authorize"}
-      canTriggerLogin={false}
-    >
-      <WrappedComponent {...props} />
-    </PlasmicPageGuard__>
-  );
-
-  return PageGuard;
-}
-
 export const PlasmicRegister = Object.assign(
   // Top-level PlasmicRegister renders the root element
-  withPlasmicPageGuard(makeNodeComponent("root")),
+  makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
     // Metadata about props expected for PlasmicRegister

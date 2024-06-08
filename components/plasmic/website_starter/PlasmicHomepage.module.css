@@ -65,3 +65,6 @@
   height: auto;
   min-width: 0;
 }
+.logoutbtn:global(.__wab_instance):global(.__wab_instance) {
+  position: relative;
+}
