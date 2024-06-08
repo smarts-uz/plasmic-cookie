@@ -18,7 +18,7 @@ import {
   useCurrentUser
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import Logoutbtn from "../../Logoutbtn"; // plasmic-import: 65-899b64QTN/component
+import Logout2 from "../../Logout2"; // plasmic-import: jVguBkIHOahd/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: jmHNNnoWA4E72wFFsdNVMq/projectcss
@@ -82,63 +82,99 @@ function PlasmicHomepage__RenderFunc(props) {
             data-plasmic-override={overrides.section}
             className={classNames(projectcss.all, sty.section)}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
-            >
-              {"Welcome to your first page."}
-            </h1>
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return "User " + currentUser.email;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "email";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          </section>
-          {(() => {
-            try {
-              return currentUser.isLoggedIn;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
+            {(() => {
+              try {
+                return currentUser.isLoggedIn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
               }
-              throw e;
-            }
-          })() ? (
-            <Logoutbtn
-              data-plasmic-name={"logoutbtn"}
-              data-plasmic-override={overrides.logoutbtn}
-              className={classNames("__wab_instance", sty.logoutbtn)}
+            })() ? (
+              <h1
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1__iiDev
+                )}
+              >
+                {"Welcome to your first page."}
+              </h1>
+            ) : null}
+            {(() => {
+              try {
+                return !currentUser.isLoggedIn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <h1
+                className={classNames(
+                  projectcss.all,
+                  projectcss.h1,
+                  projectcss.__wab_text,
+                  sty.h1__zUbIp
+                )}
+              >
+                {"Please login\n"}
+              </h1>
+            ) : null}
+            {(() => {
+              try {
+                return currentUser.isLoggedIn;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return "User " + currentUser.email;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "email";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            ) : null}
+            <Logout2
+              data-plasmic-name={"logout2"}
+              data-plasmic-override={overrides.logout2}
+              className={classNames("__wab_instance", sty.logout2)}
             />
-          ) : null}
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -146,11 +182,10 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text", "logoutbtn"],
-  section: ["section", "h1", "text"],
-  h1: ["h1"],
+  root: ["root", "section", "text", "logout2"],
+  section: ["section", "text", "logout2"],
   text: ["text"],
-  logoutbtn: ["logoutbtn"]
+  logout2: ["logout2"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -186,9 +221,8 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
     text: makeNodeComponent("text"),
-    logoutbtn: makeNodeComponent("logoutbtn"),
+    logout2: makeNodeComponent("logout2"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

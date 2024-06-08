@@ -486,20 +486,6 @@
           "plumeType": "text-input"
         },
         {
-          "id": "0uc7sNT1dPI0",
-          "name": "Button",
-          "type": "managed",
-          "projectId": "jmHNNnoWA4E72wFFsdNVMq",
-          "renderModuleFilePath": "plasmic/website_starter/PlasmicButton.jsx",
-          "importSpec": {
-            "modulePath": "Button.jsx"
-          },
-          "cssFilePath": "plasmic/website_starter/PlasmicButton.module.css",
-          "scheme": "blackbox",
-          "componentType": "component",
-          "plumeType": "button"
-        },
-        {
           "id": "b6i7nkPTpQZ-",
           "name": "Auth",
           "type": "managed",
@@ -522,6 +508,46 @@
             "modulePath": "Logoutbtn.jsx"
           },
           "cssFilePath": "plasmic/website_starter/PlasmicLogoutbtn.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "0uc7sNT1dPI0",
+          "name": "Logout",
+          "type": "managed",
+          "projectId": "jmHNNnoWA4E72wFFsdNVMq",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicLogout.jsx",
+          "importSpec": {
+            "modulePath": "Logout.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicLogout.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "si0lgkJwQShu",
+          "name": "Registerr",
+          "type": "managed",
+          "projectId": "jmHNNnoWA4E72wFFsdNVMq",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicRegisterr.jsx",
+          "importSpec": {
+            "modulePath": "Registerr.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicRegisterr.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "jVguBkIHOahd",
+          "name": "Logout2",
+          "type": "managed",
+          "projectId": "jmHNNnoWA4E72wFFsdNVMq",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicLogout2.jsx",
+          "importSpec": {
+            "modulePath": "Logout2.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicLogout2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

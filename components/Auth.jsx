@@ -33,15 +33,8 @@ function Auth_(props, ref) {
                                    email: email,
                                    password: password
                                  })
-                                 //
-                                 // loginfunc = await supabase.auth.signUp({
-                                 //     email: email,
-                                 //     password: password
-                                 // })
+
                                  const {data} = loginfunc;
-                                 // cookies.set('guid', data['user']['id']);
-                                 // console.log(data)
-                                 // console.info(cookies.get('guid'));
                                  console.info(data)
                                  const {error} = loginfunc
                                  if (error) {

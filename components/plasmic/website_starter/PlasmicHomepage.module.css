@@ -52,7 +52,14 @@
     grid-column: 4;
   }
 }
-.h1 {
+.h1__iiDev {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  min-width: 0;
+}
+.h1__zUbIp {
   position: relative;
   width: 100%;
   height: auto;
@@ -65,6 +72,6 @@
   height: auto;
   min-width: 0;
 }
-.logoutbtn:global(.__wab_instance):global(.__wab_instance) {
+.logout2:global(.__wab_instance) {
   position: relative;
 }

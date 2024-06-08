@@ -29,7 +29,8 @@ export async function getPlasmicAuthData(
     });
   console.log(result)
     if (result.error) {
-      throw new Error("Error creating user: " + result.error);
+      console.log(result.error)
+      // throw new Error("Error creating user: " + result.error);
     }
 
     const { user: plasmicUser, token: plasmicUserToken } = result;

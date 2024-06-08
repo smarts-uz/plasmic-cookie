@@ -17,7 +17,7 @@ import {
   useCurrentUser
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import Button from "../../Button"; // plasmic-import: 0uc7sNT1dPI0/component
+import Logout from "../../Logout"; // plasmic-import: 0uc7sNT1dPI0/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import sty from "./PlasmicLogoutbtn.module.css"; // plasmic-import: 65-899b64QTN/css
 
@@ -49,7 +49,7 @@ function PlasmicLogoutbtn__RenderFunc(props) {
   const $refs = refsRef.current;
   const currentUser = useCurrentUser?.() || {};
   return (
-    <Button
+    <Logout
       data-plasmic-name={"lgbtn"}
       data-plasmic-override={overrides.lgbtn}
       data-plasmic-root={true}
@@ -57,7 +57,7 @@ function PlasmicLogoutbtn__RenderFunc(props) {
       className={classNames("__wab_instance", sty.lgbtn)}
     >
       {"LogOut"}
-    </Button>
+    </Logout>
   );
 }
 
